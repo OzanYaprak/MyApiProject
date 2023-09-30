@@ -2,9 +2,9 @@
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class AdminLayoutController : Controller
+    public class HomeController : Controller
     {
-        public IActionResult _AdminLayout()
+        public IActionResult Index()
         {
             return View();
         }

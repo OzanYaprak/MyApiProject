@@ -16,6 +16,12 @@ namespace HotelProject.WebApi
 
             builder.Services.AddScoped(typeof(IRepository<>), typeof(SQLRepository<>));
             builder.Services.AddDbContext<SQLContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("SQLConnection")));
+            
+            //CUSTOM
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("OtelApiCors", options=> options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -28,6 +34,12 @@ namespace HotelProject.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            //CUSTOM
+            app.UseRouting();
+
+            //CUSTOM
+            app.UseCors("OtelApiCors");
 
             app.UseAuthorization();
 

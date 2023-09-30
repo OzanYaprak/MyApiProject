@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    @* HEAD PARTIALVIEW *@
+    @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/PartialHead.cshtml")
+
+</head>
+
+<body>
+    @* PRELOADER PARTIALVIEW *@
+    @* @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Preloader.cshtml") *@
+
+    <div id="main-wrapper">
+
+        @* NAVHEADER PARTIALVIEW *@
+        @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Navheader.cshtml")
+
+
+        @* HEADER PARTIALVIEW *@
+        @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Header.cshtml")
+
+
+        @* HEADER PARTIALVIEW *@
+        @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Sidebar.cshtml")
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        @* HEADER PARTIALVIEW *@
+        @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Footer.cshtml")
+
+    </div>
+
+    @* SCRIPTS PARTIALVIEW *@
+    @await Html.PartialAsync("~/Areas/Admin/Views/PartialViews/Scripts.cshtml")
+
+</body>
+</html>
